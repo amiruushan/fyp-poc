@@ -1,0 +1,103 @@
+{
+  "amends": "configs/experiment_protocol_v2.json",
+  "attack_endpoint": "bounded abstract feature-vector prediction flip; no realizable URL or HTML edit asserted",
+  "bootstrap": {
+    "descriptive_interval": 0.95,
+    "four_contrast_adjusted_interval": null,
+    "replicates": 10000,
+    "seed": 20261123,
+    "two_contrast_adjusted_interval": 0.975,
+    "unit": "connected_group"
+  },
+  "confirmatory_budget": {
+    "changed_coordinates": 1,
+    "total_binary_queries": 5
+  },
+  "confirmatory_contrasts": [
+    "logistic_regression M_family minus S",
+    "gradient_boosting M_family minus S"
+  ],
+  "confirmatory_knowledge": [
+    "K0"
+  ],
+  "coordinate_budget_grid": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "development_fpr_target": 0.02,
+  "equivalence_margin_absolute_risk_difference": 0.05,
+  "final_access_allowed": false,
+  "fit_split": "train",
+  "frozen_models_and_thresholds": {
+    "gradient_boosting": {
+      "development_achieved_fpr": 0.019623875715453803,
+      "development_recall": 0.7055555555555556,
+      "model_sha256": "662d8bf45b863604b20755154f656c6900135bbbd42de718a249b9a42e3c9995",
+      "threshold": 0.792962872694845
+    },
+    "logistic_regression": {
+      "development_achieved_fpr": 0.019623875715453803,
+      "development_recall": 0.5481481481481482,
+      "model_sha256": "ee047200a42cb23c00daa7cfab6f0234bb21e6ad7f4b0e8fd15eb2304ed961ab",
+      "threshold": 0.7911127720700377
+    }
+  },
+  "knowledge_interaction_hypothesis": "not_tested: K0 and K2 are operationally identical under frozen Step 8 search",
+  "matrix_manifest": "data/manifests/compphish_v4_feature_matrix.json",
+  "minimum_development_recall_gate": 0.5,
+  "models": {
+    "gradient_boosting": {
+      "learning_rate": 0.05,
+      "max_depth": [
+        1,
+        2,
+        3
+      ],
+      "min_samples_leaf": 20,
+      "n_estimators": [
+        100,
+        200
+      ],
+      "subsample": 1.0
+    },
+    "logistic_regression": {
+      "C": [
+        0.01,
+        0.1,
+        1,
+        10
+      ],
+      "max_iter": 2000,
+      "penalty": "l2",
+      "solver": "lbfgs",
+      "standardize_train_only": true
+    }
+  },
+  "original_1pct_result_retained": true,
+  "pending_before_final": [
+    "institutional_data_handling_confirmation",
+    "method_validation_implementation_check",
+    "final_freeze_manifest"
+  ],
+  "precision_projection_manifest": "data/manifests/compphish_v4_step9_precision.json",
+  "primary_denominator": "initially detected phishing starts with preassigned same-family factual S and a distinct eligible M cue",
+  "primary_rows_only": true,
+  "projected_precision_gate_passed": true,
+  "protocol_version": 3,
+  "query_budget_grid": [
+    5,
+    10,
+    20,
+    40
+  ],
+  "registry": "data/manifests/compphish_v4_feature_registry.json",
+  "secondary_minimax_enabled": false,
+  "seed": 20261121,
+  "selection_metric": "development_average_precision",
+  "selection_split": "development",
+  "status": "development_scope_and_precision_amendment",
+  "threshold_selection_basis": "Smallest audited target in {0.01, 0.02, 0.03, 0.05} at which both frozen models satisfy the unchanged >=0.50 development recall gate; selected after observing development outcomes."
+}
