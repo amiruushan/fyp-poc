@@ -1,0 +1,63 @@
+{
+  "attack_script_sha256": "7d4dafa560c26b4e11c724f3dddd57c5a7c40144a50df3a8ba9448db9cca9b1e",
+  "budget": {
+    "changed_coordinates": 1,
+    "total_binary_queries": 5
+  },
+  "ethics_status": "User reports supervisor accepted Class 1 for this PoC and local dataset processing; declaration not independently inspected.",
+  "factual_audit": {
+    "failure_count": 0,
+    "failures_by_feature": {},
+    "feature_checks": 18420,
+    "method": "Independent recomputation of every development row against archived URL/HTML and Step 4 matrix; pinned offline parser",
+    "sample_rows": 1535
+  },
+  "final_split_evaluated": false,
+  "local_log_path": "data/processed/step10_method_validation_log.csv",
+  "local_log_sha256": "c63f7362a84fcfee1337080a1a8b2299e86d40f5fed18559806d46d3760bf959",
+  "matrix_sha256": "a969f207f16f98c87645424a127cd45fbbaffc300c42bcd2865b3284b1f0d602",
+  "method_split_only": true,
+  "method_validation_passed": true,
+  "models": {
+    "gradient_boosting": {
+      "discordance": {
+        "-1": 2,
+        "0": 157,
+        "1": 24
+      },
+      "initially_detected_phishing": 497,
+      "matched_M_family_rate": 0.7049180327868853,
+      "matched_S_rate": 0.5846994535519126,
+      "matched_V_rate": 0.6939890710382514,
+      "matched_groups": 176,
+      "matched_rows": 183,
+      "paired_M_minus_S": 0.12021857923497267,
+      "paired_cluster_bootstrap_97_5": [
+        0.06077348066298342,
+        0.18181818181818182
+      ],
+      "phishing_total": 720
+    },
+    "logistic_regression": {
+      "discordance": {
+        "-1": 7,
+        "0": 100,
+        "1": 119
+      },
+      "initially_detected_phishing": 386,
+      "matched_M_family_rate": 0.7522123893805309,
+      "matched_S_rate": 0.25663716814159293,
+      "matched_V_rate": 0.42035398230088494,
+      "matched_groups": 205,
+      "matched_rows": 226,
+      "paired_M_minus_S": 0.49557522123893805,
+      "paired_cluster_bootstrap_97_5": [
+        0.4077213479573995,
+        0.581081081081081
+      ],
+      "phishing_total": 720
+    }
+  },
+  "protocol_sha256": "0b4da86f5a0acf0748e9aa2f71d3cab679e9e549700f421ba067ef2b44e71394",
+  "stage": "Step 10 frozen method-validation implementation check"
+}
