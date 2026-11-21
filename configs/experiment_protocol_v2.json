@@ -1,0 +1,94 @@
+{
+  "amends": "configs/experiment_protocol_v1.json",
+  "bootstrap": {
+    "descriptive_interval": 0.95,
+    "four_contrast_adjusted_interval": 0.9875,
+    "replicates": 10000,
+    "seed": 20261123,
+    "unit": "connected_group"
+  },
+  "confirmatory_knowledge": [
+    "K0",
+    "K2"
+  ],
+  "coordinate_budget_grid": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "development_fpr_target": 0.02,
+  "final_access_allowed": false,
+  "fit_split": "train",
+  "frozen_models_and_thresholds": {
+    "gradient_boosting": {
+      "development_achieved_fpr": 0.019623875715453803,
+      "development_recall": 0.7055555555555556,
+      "model_sha256": "662d8bf45b863604b20755154f656c6900135bbbd42de718a249b9a42e3c9995",
+      "threshold": 0.792962872694845
+    },
+    "logistic_regression": {
+      "development_achieved_fpr": 0.019623875715453803,
+      "development_recall": 0.5481481481481482,
+      "model_sha256": "ee047200a42cb23c00daa7cfab6f0234bb21e6ad7f4b0e8fd15eb2304ed961ab",
+      "threshold": 0.7911127720700377
+    }
+  },
+  "matrix_manifest": "data/manifests/compphish_v4_feature_matrix.json",
+  "minimum_development_recall_gate": 0.5,
+  "models": {
+    "gradient_boosting": {
+      "learning_rate": 0.05,
+      "max_depth": [
+        1,
+        2,
+        3
+      ],
+      "min_samples_leaf": 20,
+      "n_estimators": [
+        100,
+        200
+      ],
+      "subsample": 1.0
+    },
+    "logistic_regression": {
+      "C": [
+        0.01,
+        0.1,
+        1,
+        10
+      ],
+      "max_iter": 2000,
+      "penalty": "l2",
+      "solver": "lbfgs",
+      "standardize_train_only": true
+    }
+  },
+  "original_1pct_result_retained": true,
+  "pending_before_final": [
+    "runtime_pins",
+    "model_and_threshold_hashes",
+    "grammar_and_search",
+    "cue_fidelity_audit",
+    "selected_budget",
+    "equivalence_margin",
+    "precision_projection",
+    "handling_requirements"
+  ],
+  "primary_rows_only": true,
+  "protocol_version": 2,
+  "query_budget_grid": [
+    5,
+    10,
+    20,
+    40
+  ],
+  "registry": "data/manifests/compphish_v4_feature_registry.json",
+  "secondary_minimax_enabled": false,
+  "seed": 20261121,
+  "selection_metric": "development_average_precision",
+  "selection_split": "development",
+  "status": "development_feasibility_amendment",
+  "threshold_selection_basis": "Smallest audited target in {0.01, 0.02, 0.03, 0.05} at which both frozen models satisfy the unchanged >=0.50 development recall gate; selected after observing development outcomes."
+}
