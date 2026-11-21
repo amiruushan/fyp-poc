@@ -1,0 +1,118 @@
+{
+  "factual_audit": {
+    "failure_count": 0,
+    "failures_by_feature": {},
+    "feature_checks": 27636,
+    "method": "Independent recomputation of every development row against archived URL/HTML and Step 4 matrix; pinned offline parser",
+    "sample_rows": 2303
+  },
+  "final_evaluation_authorized": false,
+  "grammar": {
+    "candidate_values": "train-only 5th and 95th percentiles for numeric; binary toggle; exact baseline vector with up to 5 changed coordinates",
+    "dependency_rule": "Independent coordinate changes are an abstract feature-space relaxation; they are not asserted to map to a valid URL or HTML page.",
+    "features": [
+      {
+        "family": "url_structure",
+        "high": 84.0,
+        "low": 19.0,
+        "name": "url_length",
+        "type": "integer"
+      },
+      {
+        "family": "url_structure",
+        "high": 3.0,
+        "low": 1.0,
+        "name": "no_of_slashes_inpath",
+        "type": "integer"
+      },
+      {
+        "family": "url_structure",
+        "high": 1.0,
+        "low": 0.0,
+        "name": "num_query_params",
+        "type": "integer"
+      },
+      {
+        "family": "url_lexical",
+        "high": 0.3058691756272405,
+        "low": 0.0,
+        "name": "numeric_proportion",
+        "type": "float"
+      },
+      {
+        "family": "url_lexical",
+        "high": 0.23076923076923078,
+        "low": 0.0,
+        "name": "hostname_digit_ratio",
+        "type": "float"
+      },
+      {
+        "family": "url_lexical",
+        "high": 4.871808636521523,
+        "low": 3.4464393446710155,
+        "name": "url_entropy",
+        "type": "float"
+      },
+      {
+        "family": "url_lexical",
+        "high": 1.0,
+        "low": 0.0,
+        "name": "has_embedded_url",
+        "type": "boolean"
+      },
+      {
+        "family": "url_structure",
+        "high": 1.0,
+        "low": 0.0,
+        "name": "uses_https",
+        "type": "boolean"
+      },
+      {
+        "family": "html_structure",
+        "high": 4.0,
+        "low": 0.0,
+        "name": "no_of_forms",
+        "type": "integer"
+      },
+      {
+        "family": "html_structure",
+        "high": 152.0,
+        "low": 0.0,
+        "name": "no_of_images",
+        "type": "integer"
+      },
+      {
+        "family": "html_content",
+        "high": 1.0,
+        "low": 0.0,
+        "name": "has_missing_title",
+        "type": "boolean"
+      },
+      {
+        "family": "html_structure",
+        "high": 1.0,
+        "low": 0.0,
+        "name": "has_inline_event_handlers",
+        "type": "boolean"
+      }
+    ],
+    "query_accounting": "Initial binary verdict plus each candidate prediction; rejected candidates are skipped and counted separately as invalid proposals, which are zero under this grammar."
+  },
+  "knowledge_conditions": "K0 and K2 operationally equivalent in this pilot; no knowledge-effect claim",
+  "protocol": "configs/experiment_protocol_v2.json",
+  "remaining_gates": [
+    "institutional data handling",
+    "research question RQ3 amendment or distinct knowledge procedures",
+    "feature dependency/feasibility interpretation",
+    "precision projection and equivalence margin",
+    "final freeze manifest"
+  ],
+  "script_sha256": "7d4dafa560c26b4e11c724f3dddd57c5a7c40144a50df3a8ba9448db9cca9b1e",
+  "selected_pilot_budget": {
+    "changed_coordinates": 1,
+    "total_binary_queries": 5
+  },
+  "selection_rule": "Pooled V/S/M-family success closest to 0.5 among points in [0.1,0.9]; ties fewer changes then queries. Same selected point in both detector families.",
+  "status": "development_pilot_only",
+  "version": 1
+}
