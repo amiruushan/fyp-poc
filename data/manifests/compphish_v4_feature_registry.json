@@ -1,0 +1,28 @@
+{
+  "dataset": "CompPhish v4",
+  "doi": "10.17632/fmbs4kp9wz.4",
+  "registry_version": 1,
+  "scope": "Common detector input registry, frozen before model training and attack pilots",
+  "identifier_and_label_columns_excluded": ["serial_number", "url", "label"],
+  "features": [
+    {"feature_id":"F11","name":"url_length","released_column":"url_length","family":"url_structure","type":"integer","rule":"Character count of the original URL string, including scheme, query, and fragment as stored."},
+    {"feature_id":"F28","name":"no_of_slashes_inpath","released_column":"no_of_slashes_inpath","family":"url_structure","type":"integer","rule":"Count '/' characters in urlparse(url).path; query and fragment are excluded."},
+    {"feature_id":"F33","name":"num_query_params","released_column":"num_query_params","family":"url_structure","type":"integer","rule":"Number of keys returned by urllib.parse.parse_qs(urlparse(url).query), using its default blank-value behavior."},
+    {"feature_id":"F34","name":"numeric_proportion","released_column":"numeric_proportion","family":"url_lexical","type":"float","rule":"Count characters for which str.isdigit() is true in the original URL, divided by its character count; use 0 for an empty URL."},
+    {"feature_id":"F36","name":"hostname_digit_ratio","released_column":"hostname_digit_ratio","family":"url_lexical","type":"float","rule":"Reconstruct subdomain, domain, and suffix using pinned tldextract 5.2.0 with its bundled PSL and private suffixes disabled (matching the released extractor default); count ASCII digits in that reconstructed hostname and divide by its length; use 0 when empty."},
+    {"feature_id":"F35","name":"url_entropy","released_column":"url_entropy","family":"url_lexical","type":"float","rule":"Shannon entropy in bits over the character-frequency distribution of the original URL; use 0 for an empty URL."},
+    {"feature_id":"F31","name":"has_embedded_url","released_column":"has_embedded_url","family":"url_lexical","type":"boolean","rule":"1 if the original URL contains more than one occurrence in total of the literal lowercase tokens 'http://' and 'https://'; otherwise 0."},
+    {"feature_id":"F32","name":"uses_https","released_column":"uses_https","family":"url_structure","type":"boolean","rule":"1 if urlparse(url).scheme is exactly 'https'; otherwise 0."},
+    {"feature_id":"F48","name":"no_of_forms","released_column":"no_of_forms","family":"html_structure","type":"integer","rule":"Count form elements returned by BeautifulSoup 4.13.4 using the html.parser backend."},
+    {"feature_id":"F49","name":"no_of_images","released_column":"no_of_Images","family":"html_structure","type":"integer","rule":"Count img elements returned by BeautifulSoup 4.13.4 using the html.parser backend; the released column uses a capitalization variant."},
+    {"feature_id":"F67","name":"has_missing_title","released_column":"has_missing_title","family":"html_content","type":"boolean","rule":"1 when the stripped, lowercased direct title string is missing or exactly one of index, home, page, or the empty string; otherwise 0."},
+    {"feature_id":"F69","name":"has_inline_event_handlers","released_column":"has_inline_event_handlers","family":"html_structure","type":"boolean","rule":"1 if any a or button element has a nonempty onclick or onmouseover attribute; otherwise 0."}
+  ],
+  "decisions": [
+    "The same frozen registry is used by both detector families.",
+    "Features requiring source lists, brand matching, ambiguous link-count semantics, or fitted phishing-only corpus statistics are excluded.",
+    "The released extractor is inspected as source only; it is not imported or executed.",
+    "The final split is not used for feature selection or recomputation tuning.",
+    "The released HTML feature columns no_of_Images, no_of_forms, and has_inline_event_handlers failed the development-sample source recomputation check; the PoC must regenerate these three from archived HTML for every record, never consume their released table values."
+  ]
+}
