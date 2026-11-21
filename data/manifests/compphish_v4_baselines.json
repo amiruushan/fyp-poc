@@ -1,0 +1,171 @@
+{
+  "dataset": "CompPhish v4",
+  "development_rows": 2303,
+  "feature_columns": [
+    "url_length",
+    "no_of_slashes_inpath",
+    "num_query_params",
+    "numeric_proportion",
+    "hostname_digit_ratio",
+    "url_entropy",
+    "has_embedded_url",
+    "uses_https",
+    "no_of_forms",
+    "no_of_images",
+    "has_missing_title",
+    "has_inline_event_handlers"
+  ],
+  "final_split_evaluated": false,
+  "gate_passed_both": false,
+  "local_model_files": {
+    "gradient_boosting": {
+      "path": "data/processed/models/gradient_boosting.joblib",
+      "sha256": "662d8bf45b863604b20755154f656c6900135bbbd42de718a249b9a42e3c9995"
+    },
+    "logistic_regression": {
+      "path": "data/processed/models/logistic_regression.joblib",
+      "sha256": "ee047200a42cb23c00daa7cfab6f0234bb21e6ad7f4b0e8fd15eb2304ed961ab"
+    }
+  },
+  "matrix_sha256": "a969f207f16f98c87645424a127cd45fbbaffc300c42bcd2865b3284b1f0d602",
+  "method_validation_evaluated": false,
+  "models": {
+    "gradient_boosting": {
+      "candidates": [
+        {
+          "development_average_precision": 0.9359700699236473,
+          "development_roc_auc": 0.9390584779382818,
+          "params": {
+            "max_depth": 1,
+            "n_estimators": 100
+          }
+        },
+        {
+          "development_average_precision": 0.9420452001000592,
+          "development_roc_auc": 0.9434053329699283,
+          "params": {
+            "max_depth": 1,
+            "n_estimators": 200
+          }
+        },
+        {
+          "development_average_precision": 0.9465459465002524,
+          "development_roc_auc": 0.9473232942672845,
+          "params": {
+            "max_depth": 2,
+            "n_estimators": 100
+          }
+        },
+        {
+          "development_average_precision": 0.9508637742701075,
+          "development_roc_auc": 0.9513714757275673,
+          "params": {
+            "max_depth": 2,
+            "n_estimators": 200
+          }
+        },
+        {
+          "development_average_precision": 0.9532035607176075,
+          "development_roc_auc": 0.9562195269676872,
+          "params": {
+            "max_depth": 3,
+            "n_estimators": 100
+          }
+        },
+        {
+          "development_average_precision": 0.9582333798924267,
+          "development_roc_auc": 0.9605773598619061,
+          "params": {
+            "max_depth": 3,
+            "n_estimators": 200
+          }
+        }
+      ],
+      "development": {
+        "average_precision": 0.9582333798924267,
+        "benign": 1223,
+        "false_positive_rate": 0.009811937857726901,
+        "false_positive_rate_wilson_95": [
+          0.005621658900183188,
+          0.017071948835780372
+        ],
+        "false_positives": 12,
+        "phishing": 1080,
+        "precision": 0.9821428571428571,
+        "recall": 0.6111111111111112,
+        "recall_gate_passed": true,
+        "roc_auc": 0.9605773598619061,
+        "rows": 2303
+      },
+      "selected_params": {
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "threshold": 0.8926598135925112
+    },
+    "logistic_regression": {
+      "candidates": [
+        {
+          "development_average_precision": 0.9145780679554768,
+          "development_roc_auc": 0.9184208533963236,
+          "params": {
+            "C": 0.01
+          }
+        },
+        {
+          "development_average_precision": 0.9204610744163013,
+          "development_roc_auc": 0.9194989552103207,
+          "params": {
+            "C": 0.1
+          }
+        },
+        {
+          "development_average_precision": 0.9219748801403418,
+          "development_roc_auc": 0.9199017292026287,
+          "params": {
+            "C": 1
+          }
+        },
+        {
+          "development_average_precision": 0.922254858598609,
+          "development_roc_auc": 0.9200448199630539,
+          "params": {
+            "C": 10
+          }
+        }
+      ],
+      "development": {
+        "average_precision": 0.922254858598609,
+        "benign": 1223,
+        "false_positive_rate": 0.009811937857726901,
+        "false_positive_rate_wilson_95": [
+          0.005621658900183188,
+          0.017071948835780372
+        ],
+        "false_positives": 12,
+        "phishing": 1080,
+        "precision": 0.9718969555035128,
+        "recall": 0.38425925925925924,
+        "recall_gate_passed": false,
+        "roc_auc": 0.9200448199630539,
+        "rows": 2303
+      },
+      "selected_params": {
+        "C": 10
+      },
+      "threshold": 0.8970816283581043
+    }
+  },
+  "protocol_sha256": "5f0b36b81555d33348691bac80327fb9fc2dd275a25b74090b4d61c193dc1e84",
+  "registry_sha256": "490016329c52db7016477cd3a8f0bd5946e7e86b8a31a737b843af78d88acbb4",
+  "seed": 20261121,
+  "stage": "Step 6 train/development baseline",
+  "train_rows": 9214,
+  "versions": {
+    "joblib": "1.5.3",
+    "numpy": "2.4.4",
+    "python": "3.14.5",
+    "scikit_learn": "1.8.0",
+    "scipy": "1.17.1"
+  }
+}
