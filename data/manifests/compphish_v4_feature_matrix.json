@@ -1,0 +1,68 @@
+{
+  "base_columns": [
+    "serial_number",
+    "canonical_serial",
+    "group_id",
+    "split",
+    "label",
+    "included_primary",
+    "mixed_label_exact_html",
+    "url",
+    "html_sha256"
+  ],
+  "dataset": "CompPhish v4",
+  "dependencies": {
+    "beautifulsoup4": "4.13.4",
+    "openpyxl": "3.1.5",
+    "tldextract": "5.2.0"
+  },
+  "doi": "10.17632/fmbs4kp9wz.4",
+  "exact_duplicate_records_retained_but_excluded_from_primary": 3,
+  "feature_columns": [
+    "url_length",
+    "no_of_slashes_inpath",
+    "num_query_params",
+    "numeric_proportion",
+    "hostname_digit_ratio",
+    "url_entropy",
+    "has_embedded_url",
+    "uses_https",
+    "no_of_forms",
+    "no_of_images",
+    "has_missing_title",
+    "has_inline_event_handlers"
+  ],
+  "final_split": "features are materialized by the frozen registry rule, but no final-split values are summarized, compared, tuned on, or evaluated in this step",
+  "html_parser_recovery": {
+    "affected_documents": 1,
+    "details": [
+      {
+        "malformed_numeric_references_delimited": 11,
+        "serial_number": "202420251302"
+      }
+    ],
+    "policy": "On HTMLParser integer-conversion failure only, insert a missing semicolon after a valid decimal/hex numeric-reference prefix and retry parsing."
+  },
+  "input_sha256": {
+    "All_HTML.zip": "12440e4f911fabf4ec2c712ae014cb43e638e9a6adc6c7c6a506a8a7df24fcf7",
+    "Mapping_File.xlsx": "e6dda6a21d925f8aba36090f295b08e9808a5dfe8dd3276bf8cd82022855f14a",
+    "registry_json": "490016329c52db7016477cd3a8f0bd5946e7e86b8a31a737b843af78d88acbb4",
+    "split_csv": "5213c671cc1f9c1ec0d990f19258a3dd38f6cff8bb6f46e059271a4d5f46ff2b"
+  },
+  "output_csv": "data/processed/compphish_v4_feature_matrix.csv",
+  "output_sha256": "a969f207f16f98c87645424a127cd45fbbaffc300c42bcd2865b3284b1f0d602",
+  "primary_analysis_record_count": 15355,
+  "recomputed_from_sources": [
+    "all 12 registry features; archived HTML parsed inertly with html.parser"
+  ],
+  "record_count": 15358,
+  "registry_version": 1,
+  "released_values_not_used_for_any_feature": true,
+  "scope_note": "Full source-derived matrix only; no model fitting, feature selection, or final-set analysis.",
+  "tldextract_configuration": {
+    "fallback_to_pinned_package_snapshot": true,
+    "private_suffixes": false,
+    "suffix_list_urls": [],
+    "version": "5.2.0"
+  }
+}
