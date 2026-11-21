@@ -1,0 +1,66 @@
+{
+  "assignment": {
+    "final_set": "assigned from labels and group metadata only; no feature values, model scores, or attack outcomes were inspected",
+    "greedy_restarts": 64,
+    "group_exclusivity": "connected domain/template group IDs are assigned atomically",
+    "objective": "sum of squared deviations for label counts and mixed-label exact-HTML group counts, normalized by their dataset totals",
+    "primary_duplicate_policy": "collapse exact URL + exact HTML SHA-256 + same-label rows; retain distinct URL/page pairs even when HTML is identical",
+    "seed": 20261121,
+    "selected_restart_index": 0
+  },
+  "connected_groups": 10318,
+  "dataset": "CompPhish v4",
+  "doi": "10.17632/fmbs4kp9wz.4",
+  "exact_duplicate_rows_excluded_from_primary": 3,
+  "excluded_duplicate_rows_by_label": {
+    "legitimate": 0,
+    "phishing": 3
+  },
+  "maximum_group_size_primary_rows": 337,
+  "mixed_label_exact_html_groups": 8,
+  "mixed_label_exact_html_rows_retained_primary": 241,
+  "original_rows": 15358,
+  "primary_analysis_rows": 15355,
+  "splits": {
+    "development": {
+      "actual_fraction": 0.14998371865841745,
+      "group_count": 1952,
+      "legitimate": 1223,
+      "mixed_label_exact_html_groups": 1,
+      "mixed_label_exact_html_rows_retained_primary": 3,
+      "phishing": 1080,
+      "primary_rows": 2303,
+      "target_fraction": 0.15
+    },
+    "final": {
+      "actual_fraction": 0.14998371865841745,
+      "group_count": 1952,
+      "legitimate": 1223,
+      "mixed_label_exact_html_groups": 1,
+      "mixed_label_exact_html_rows_retained_primary": 3,
+      "phishing": 1080,
+      "primary_rows": 2303,
+      "target_fraction": 0.15
+    },
+    "method_validation": {
+      "actual_fraction": 0.09996743731683491,
+      "group_count": 1459,
+      "legitimate": 815,
+      "mixed_label_exact_html_groups": 1,
+      "mixed_label_exact_html_rows_retained_primary": 2,
+      "phishing": 720,
+      "primary_rows": 1535,
+      "target_fraction": 0.1
+    },
+    "train": {
+      "actual_fraction": 0.6000651253663302,
+      "group_count": 4955,
+      "legitimate": 4893,
+      "mixed_label_exact_html_groups": 5,
+      "mixed_label_exact_html_rows_retained_primary": 233,
+      "phishing": 4321,
+      "primary_rows": 9214,
+      "target_fraction": 0.6
+    }
+  }
+}
