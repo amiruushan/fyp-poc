@@ -1,0 +1,3 @@
+# Locally acquired research data; never commit dataset payloads.
+data/raw/
+data/processed/
