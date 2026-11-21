@@ -1,0 +1,659 @@
+{
+  "budget_grid": {
+    "changes": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "queries": [
+      5,
+      10,
+      20,
+      40
+    ]
+  },
+  "factual_audit": {
+    "failure_count": 0,
+    "failures_by_feature": {},
+    "feature_checks": 27636,
+    "method": "Independent recomputation of every development row against archived URL/HTML and Step 4 matrix; pinned offline parser",
+    "sample_rows": 2303
+  },
+  "grammar": {
+    "candidate_values": "train-only 5th and 95th percentiles for numeric; binary toggle; exact baseline vector with up to 5 changed coordinates",
+    "dependency_rule": "Independent coordinate changes are an abstract feature-space relaxation; they are not asserted to map to a valid URL or HTML page.",
+    "features": [
+      {
+        "family": "url_structure",
+        "high": 84.0,
+        "low": 19.0,
+        "name": "url_length",
+        "type": "integer"
+      },
+      {
+        "family": "url_structure",
+        "high": 3.0,
+        "low": 1.0,
+        "name": "no_of_slashes_inpath",
+        "type": "integer"
+      },
+      {
+        "family": "url_structure",
+        "high": 1.0,
+        "low": 0.0,
+        "name": "num_query_params",
+        "type": "integer"
+      },
+      {
+        "family": "url_lexical",
+        "high": 0.3058691756272405,
+        "low": 0.0,
+        "name": "numeric_proportion",
+        "type": "float"
+      },
+      {
+        "family": "url_lexical",
+        "high": 0.23076923076923078,
+        "low": 0.0,
+        "name": "hostname_digit_ratio",
+        "type": "float"
+      },
+      {
+        "family": "url_lexical",
+        "high": 4.871808636521523,
+        "low": 3.4464393446710155,
+        "name": "url_entropy",
+        "type": "float"
+      },
+      {
+        "family": "url_lexical",
+        "high": 1.0,
+        "low": 0.0,
+        "name": "has_embedded_url",
+        "type": "boolean"
+      },
+      {
+        "family": "url_structure",
+        "high": 1.0,
+        "low": 0.0,
+        "name": "uses_https",
+        "type": "boolean"
+      },
+      {
+        "family": "html_structure",
+        "high": 4.0,
+        "low": 0.0,
+        "name": "no_of_forms",
+        "type": "integer"
+      },
+      {
+        "family": "html_structure",
+        "high": 152.0,
+        "low": 0.0,
+        "name": "no_of_images",
+        "type": "integer"
+      },
+      {
+        "family": "html_content",
+        "high": 1.0,
+        "low": 0.0,
+        "name": "has_missing_title",
+        "type": "boolean"
+      },
+      {
+        "family": "html_structure",
+        "high": 1.0,
+        "low": 0.0,
+        "name": "has_inline_event_handlers",
+        "type": "boolean"
+      }
+    ],
+    "query_accounting": "Initial binary verdict plus each candidate prediction; rejected candidates are skipped and counted separately as invalid proposals, which are zero under this grammar."
+  },
+  "knowledge_conditions": "K0 and K2 are operationally identical in this pilot because the fixed search does not consume semantic definitions; no knowledge interaction is claimed.",
+  "models": {
+    "gradient_boosting": {
+      "all_start_mean_queries_at_proposed_point": {
+        "M_family": 3.3923884514435696,
+        "M_global": 3.1023622047244093,
+        "S": 3.6758530183727034,
+        "V": 3.2191601049868765
+      },
+      "all_start_rates_at_proposed_point": {
+        "M_global_with_V_fallback": 0.7204724409448819,
+        "S": 0.6299212598425197,
+        "V": 0.6981627296587927
+      },
+      "at_least_two_eligible_model_cues": 755,
+      "global_model_cue_count": 762,
+      "grid": [
+        {
+          "changes": 1,
+          "eligible_n": 290,
+          "pooled_success": 0.7114942528735632,
+          "queries": 5,
+          "rates": {
+            "M_family": 0.7413793103448276,
+            "S": 0.6655172413793103,
+            "V": 0.7275862068965517
+          }
+        },
+        {
+          "changes": 1,
+          "eligible_n": 290,
+          "pooled_success": 0.8448275862068965,
+          "queries": 10,
+          "rates": {
+            "M_family": 0.8724137931034482,
+            "S": 0.8310344827586207,
+            "V": 0.8310344827586207
+          }
+        },
+        {
+          "changes": 1,
+          "eligible_n": 290,
+          "pooled_success": 0.9344827586206895,
+          "queries": 20,
+          "rates": {
+            "M_family": 0.9344827586206896,
+            "S": 0.9344827586206896,
+            "V": 0.9344827586206896
+          }
+        },
+        {
+          "changes": 1,
+          "eligible_n": 290,
+          "pooled_success": 0.9344827586206895,
+          "queries": 40,
+          "rates": {
+            "M_family": 0.9344827586206896,
+            "S": 0.9344827586206896,
+            "V": 0.9344827586206896
+          }
+        },
+        {
+          "changes": 2,
+          "eligible_n": 290,
+          "pooled_success": 0.7114942528735632,
+          "queries": 5,
+          "rates": {
+            "M_family": 0.7413793103448276,
+            "S": 0.6655172413793103,
+            "V": 0.7275862068965517
+          }
+        },
+        {
+          "changes": 2,
+          "eligible_n": 290,
+          "pooled_success": 0.8448275862068965,
+          "queries": 10,
+          "rates": {
+            "M_family": 0.8724137931034482,
+            "S": 0.8310344827586207,
+            "V": 0.8310344827586207
+          }
+        },
+        {
+          "changes": 2,
+          "eligible_n": 290,
+          "pooled_success": 0.957471264367816,
+          "queries": 20,
+          "rates": {
+            "M_family": 0.9620689655172414,
+            "S": 0.9724137931034482,
+            "V": 0.9379310344827586
+          }
+        },
+        {
+          "changes": 2,
+          "eligible_n": 290,
+          "pooled_success": 0.9942528735632185,
+          "queries": 40,
+          "rates": {
+            "M_family": 0.9896551724137931,
+            "S": 0.993103448275862,
+            "V": 1.0
+          }
+        },
+        {
+          "changes": 3,
+          "eligible_n": 290,
+          "pooled_success": 0.7114942528735632,
+          "queries": 5,
+          "rates": {
+            "M_family": 0.7413793103448276,
+            "S": 0.6655172413793103,
+            "V": 0.7275862068965517
+          }
+        },
+        {
+          "changes": 3,
+          "eligible_n": 290,
+          "pooled_success": 0.8448275862068965,
+          "queries": 10,
+          "rates": {
+            "M_family": 0.8724137931034482,
+            "S": 0.8310344827586207,
+            "V": 0.8310344827586207
+          }
+        },
+        {
+          "changes": 3,
+          "eligible_n": 290,
+          "pooled_success": 0.957471264367816,
+          "queries": 20,
+          "rates": {
+            "M_family": 0.9620689655172414,
+            "S": 0.9724137931034482,
+            "V": 0.9379310344827586
+          }
+        },
+        {
+          "changes": 3,
+          "eligible_n": 290,
+          "pooled_success": 0.9942528735632185,
+          "queries": 40,
+          "rates": {
+            "M_family": 0.9896551724137931,
+            "S": 0.993103448275862,
+            "V": 1.0
+          }
+        },
+        {
+          "changes": 4,
+          "eligible_n": 290,
+          "pooled_success": 0.7114942528735632,
+          "queries": 5,
+          "rates": {
+            "M_family": 0.7413793103448276,
+            "S": 0.6655172413793103,
+            "V": 0.7275862068965517
+          }
+        },
+        {
+          "changes": 4,
+          "eligible_n": 290,
+          "pooled_success": 0.8448275862068965,
+          "queries": 10,
+          "rates": {
+            "M_family": 0.8724137931034482,
+            "S": 0.8310344827586207,
+            "V": 0.8310344827586207
+          }
+        },
+        {
+          "changes": 4,
+          "eligible_n": 290,
+          "pooled_success": 0.957471264367816,
+          "queries": 20,
+          "rates": {
+            "M_family": 0.9620689655172414,
+            "S": 0.9724137931034482,
+            "V": 0.9379310344827586
+          }
+        },
+        {
+          "changes": 4,
+          "eligible_n": 290,
+          "pooled_success": 0.9942528735632185,
+          "queries": 40,
+          "rates": {
+            "M_family": 0.9896551724137931,
+            "S": 0.993103448275862,
+            "V": 1.0
+          }
+        },
+        {
+          "changes": 5,
+          "eligible_n": 290,
+          "pooled_success": 0.7114942528735632,
+          "queries": 5,
+          "rates": {
+            "M_family": 0.7413793103448276,
+            "S": 0.6655172413793103,
+            "V": 0.7275862068965517
+          }
+        },
+        {
+          "changes": 5,
+          "eligible_n": 290,
+          "pooled_success": 0.8448275862068965,
+          "queries": 10,
+          "rates": {
+            "M_family": 0.8724137931034482,
+            "S": 0.8310344827586207,
+            "V": 0.8310344827586207
+          }
+        },
+        {
+          "changes": 5,
+          "eligible_n": 290,
+          "pooled_success": 0.957471264367816,
+          "queries": 20,
+          "rates": {
+            "M_family": 0.9620689655172414,
+            "S": 0.9724137931034482,
+            "V": 0.9379310344827586
+          }
+        },
+        {
+          "changes": 5,
+          "eligible_n": 290,
+          "pooled_success": 0.9942528735632185,
+          "queries": 40,
+          "rates": {
+            "M_family": 0.9896551724137931,
+            "S": 0.993103448275862,
+            "V": 1.0
+          }
+        }
+      ],
+      "initially_detected_phishing": 762,
+      "matched_distinct_cue_count": 290,
+      "matched_distinct_cue_groups": 236,
+      "matched_exclusion_by_family": {
+        "html_content": 187,
+        "html_structure": 91,
+        "url_lexical": 11,
+        "url_structure": 183
+      },
+      "phishing_total": 1080,
+      "preassigned_family_counts": {
+        "html_content": 187,
+        "html_structure": 189,
+        "url_lexical": 189,
+        "url_structure": 197
+      },
+      "proposed_operating_point": {
+        "changes": 1,
+        "eligible_n": 290,
+        "pooled_success": 0.7114942528735632,
+        "queries": 5,
+        "rates": {
+          "M_family": 0.7413793103448276,
+          "S": 0.6655172413793103,
+          "V": 0.7275862068965517
+        }
+      },
+      "selected_difference_group_bootstrap_95_pilot": [
+        0.0425531914893617,
+        0.1111111111111111
+      ],
+      "selected_paired_difference_M_family_minus_S": 0.07586206896551728
+    },
+    "logistic_regression": {
+      "all_start_mean_queries_at_proposed_point": {
+        "M_family": 3.6486486486486487,
+        "M_global": 2.2635135135135136,
+        "S": 4.489864864864865,
+        "V": 4.653716216216216
+      },
+      "all_start_rates_at_proposed_point": {
+        "M_global_with_V_fallback": 0.9121621621621622,
+        "S": 0.25675675675675674,
+        "V": 0.4543918918918919
+      },
+      "at_least_two_eligible_model_cues": 590,
+      "global_model_cue_count": 592,
+      "grid": [
+        {
+          "changes": 1,
+          "eligible_n": 347,
+          "pooled_success": 0.467819404418828,
+          "queries": 5,
+          "rates": {
+            "M_family": 0.7377521613832853,
+            "S": 0.2420749279538905,
+            "V": 0.42363112391930835
+          }
+        },
+        {
+          "changes": 1,
+          "eligible_n": 347,
+          "pooled_success": 0.8914505283381363,
+          "queries": 10,
+          "rates": {
+            "M_family": 0.9106628242074928,
+            "S": 0.8530259365994236,
+            "V": 0.9106628242074928
+          }
+        },
+        {
+          "changes": 1,
+          "eligible_n": 347,
+          "pooled_success": 0.9942363112391931,
+          "queries": 20,
+          "rates": {
+            "M_family": 0.9942363112391931,
+            "S": 0.9942363112391931,
+            "V": 0.9942363112391931
+          }
+        },
+        {
+          "changes": 1,
+          "eligible_n": 347,
+          "pooled_success": 0.9942363112391931,
+          "queries": 40,
+          "rates": {
+            "M_family": 0.9942363112391931,
+            "S": 0.9942363112391931,
+            "V": 0.9942363112391931
+          }
+        },
+        {
+          "changes": 2,
+          "eligible_n": 347,
+          "pooled_success": 0.467819404418828,
+          "queries": 5,
+          "rates": {
+            "M_family": 0.7377521613832853,
+            "S": 0.2420749279538905,
+            "V": 0.42363112391930835
+          }
+        },
+        {
+          "changes": 2,
+          "eligible_n": 347,
+          "pooled_success": 0.8914505283381363,
+          "queries": 10,
+          "rates": {
+            "M_family": 0.9106628242074928,
+            "S": 0.8530259365994236,
+            "V": 0.9106628242074928
+          }
+        },
+        {
+          "changes": 2,
+          "eligible_n": 347,
+          "pooled_success": 0.9942363112391931,
+          "queries": 20,
+          "rates": {
+            "M_family": 0.9942363112391931,
+            "S": 0.9942363112391931,
+            "V": 0.9942363112391931
+          }
+        },
+        {
+          "changes": 2,
+          "eligible_n": 347,
+          "pooled_success": 0.9990393852065322,
+          "queries": 40,
+          "rates": {
+            "M_family": 0.9971181556195965,
+            "S": 1.0,
+            "V": 1.0
+          }
+        },
+        {
+          "changes": 3,
+          "eligible_n": 347,
+          "pooled_success": 0.467819404418828,
+          "queries": 5,
+          "rates": {
+            "M_family": 0.7377521613832853,
+            "S": 0.2420749279538905,
+            "V": 0.42363112391930835
+          }
+        },
+        {
+          "changes": 3,
+          "eligible_n": 347,
+          "pooled_success": 0.8914505283381363,
+          "queries": 10,
+          "rates": {
+            "M_family": 0.9106628242074928,
+            "S": 0.8530259365994236,
+            "V": 0.9106628242074928
+          }
+        },
+        {
+          "changes": 3,
+          "eligible_n": 347,
+          "pooled_success": 0.9942363112391931,
+          "queries": 20,
+          "rates": {
+            "M_family": 0.9942363112391931,
+            "S": 0.9942363112391931,
+            "V": 0.9942363112391931
+          }
+        },
+        {
+          "changes": 3,
+          "eligible_n": 347,
+          "pooled_success": 0.9990393852065322,
+          "queries": 40,
+          "rates": {
+            "M_family": 0.9971181556195965,
+            "S": 1.0,
+            "V": 1.0
+          }
+        },
+        {
+          "changes": 4,
+          "eligible_n": 347,
+          "pooled_success": 0.467819404418828,
+          "queries": 5,
+          "rates": {
+            "M_family": 0.7377521613832853,
+            "S": 0.2420749279538905,
+            "V": 0.42363112391930835
+          }
+        },
+        {
+          "changes": 4,
+          "eligible_n": 347,
+          "pooled_success": 0.8914505283381363,
+          "queries": 10,
+          "rates": {
+            "M_family": 0.9106628242074928,
+            "S": 0.8530259365994236,
+            "V": 0.9106628242074928
+          }
+        },
+        {
+          "changes": 4,
+          "eligible_n": 347,
+          "pooled_success": 0.9942363112391931,
+          "queries": 20,
+          "rates": {
+            "M_family": 0.9942363112391931,
+            "S": 0.9942363112391931,
+            "V": 0.9942363112391931
+          }
+        },
+        {
+          "changes": 4,
+          "eligible_n": 347,
+          "pooled_success": 0.9990393852065322,
+          "queries": 40,
+          "rates": {
+            "M_family": 0.9971181556195965,
+            "S": 1.0,
+            "V": 1.0
+          }
+        },
+        {
+          "changes": 5,
+          "eligible_n": 347,
+          "pooled_success": 0.467819404418828,
+          "queries": 5,
+          "rates": {
+            "M_family": 0.7377521613832853,
+            "S": 0.2420749279538905,
+            "V": 0.42363112391930835
+          }
+        },
+        {
+          "changes": 5,
+          "eligible_n": 347,
+          "pooled_success": 0.8914505283381363,
+          "queries": 10,
+          "rates": {
+            "M_family": 0.9106628242074928,
+            "S": 0.8530259365994236,
+            "V": 0.9106628242074928
+          }
+        },
+        {
+          "changes": 5,
+          "eligible_n": 347,
+          "pooled_success": 0.9942363112391931,
+          "queries": 20,
+          "rates": {
+            "M_family": 0.9942363112391931,
+            "S": 0.9942363112391931,
+            "V": 0.9942363112391931
+          }
+        },
+        {
+          "changes": 5,
+          "eligible_n": 347,
+          "pooled_success": 0.9990393852065322,
+          "queries": 40,
+          "rates": {
+            "M_family": 0.9971181556195965,
+            "S": 1.0,
+            "V": 1.0
+          }
+        }
+      ],
+      "initially_detected_phishing": 592,
+      "matched_distinct_cue_count": 347,
+      "matched_distinct_cue_groups": 268,
+      "matched_exclusion_by_family": {
+        "html_content": 150,
+        "html_structure": 36,
+        "url_lexical": 2,
+        "url_structure": 57
+      },
+      "phishing_total": 1080,
+      "preassigned_family_counts": {
+        "html_content": 150,
+        "html_structure": 147,
+        "url_lexical": 150,
+        "url_structure": 145
+      },
+      "proposed_operating_point": {
+        "changes": 1,
+        "eligible_n": 347,
+        "pooled_success": 0.467819404418828,
+        "queries": 5,
+        "rates": {
+          "M_family": 0.7377521613832853,
+          "S": 0.2420749279538905,
+          "V": 0.42363112391930835
+        }
+      },
+      "selected_difference_group_bootstrap_95_pilot": [
+        0.4367317400442893,
+        0.5529411764705883
+      ],
+      "selected_paired_difference_M_family_minus_S": 0.49567723342939474
+    }
+  },
+  "scope": "development only; abstract bounded feature-space relaxation, no website edits",
+  "selected_log_path": "data/processed/step8_pilot_selected_log.csv",
+  "selected_log_sha256": "058f06d69aa4087f9fb9b7cc555f3c30df44b978c91fe8e903ed097a59de4acf"
+}
