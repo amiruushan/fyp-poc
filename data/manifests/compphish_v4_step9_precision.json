@@ -1,0 +1,42 @@
+{
+  "adjusted_interval_coverage": 0.975,
+  "bootstrap_seed": 20261125,
+  "cluster_unit": "connected_group",
+  "equivalence_margin_absolute_risk_difference": 0.05,
+  "maximum_projected_half_width": 0.08,
+  "minimum_matched_groups": 200,
+  "models": {
+    "gradient_boosting": {
+      "development_cluster_bootstrap_adjusted_interval": [
+        0.0376705619014901,
+        0.1174496644295302
+      ],
+      "discordant_M_only": 24,
+      "discordant_S_only": 2,
+      "equivalence_at_margin_from_development_interval": false,
+      "matched_groups": 236,
+      "matched_rows": 290,
+      "paired_difference": 0.07586206896551724,
+      "projected_half_width_same_size_groups": 0.04158759546401296,
+      "projection_gate_passed": true
+    },
+    "logistic_regression": {
+      "development_cluster_bootstrap_adjusted_interval": [
+        0.42686226071856787,
+        0.5657162104362704
+      ],
+      "discordant_M_only": 178,
+      "discordant_S_only": 6,
+      "equivalence_at_margin_from_development_interval": false,
+      "matched_groups": 268,
+      "matched_rows": 347,
+      "paired_difference": 0.4956772334293948,
+      "projected_half_width_same_size_groups": 0.07003897700687561,
+      "projection_gate_passed": true
+    }
+  },
+  "projection_gate_passed_both": true,
+  "replicates": 10000,
+  "scope": "development only; conditional projection if final matched-group composition resembles development",
+  "two_confirmatory_model_contrasts": true
+}
