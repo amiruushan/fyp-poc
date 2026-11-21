@@ -1,0 +1,78 @@
+{
+  "approval_boundary": "This manifest freezes inputs; do not evaluate final rows until the next explicitly authorized step.",
+  "artifacts": {
+    "attack_pilot": {
+      "path": "configs/attack_pilot_v1.json",
+      "sha256": "8552eeac9ca097e3d95d3a15eb0d361aed25511e600fb82d13aa123752301a86"
+    },
+    "boosted_model": {
+      "path": "data/processed/models/gradient_boosting.joblib",
+      "sha256": "662d8bf45b863604b20755154f656c6900135bbbd42de718a249b9a42e3c9995"
+    },
+    "logistic_model": {
+      "path": "data/processed/models/logistic_regression.joblib",
+      "sha256": "ee047200a42cb23c00daa7cfab6f0234bb21e6ad7f4b0e8fd15eb2304ed961ab"
+    },
+    "matrix": {
+      "path": "data/processed/compphish_v4_feature_matrix.csv",
+      "sha256": "a969f207f16f98c87645424a127cd45fbbaffc300c42bcd2865b3284b1f0d602"
+    },
+    "method_validation": {
+      "path": "data/manifests/compphish_v4_method_validation.json",
+      "sha256": "2ecef51f34174e8302fb8f683092d7f9e934d21b0a89fe150ec2e0fa2e94b97e"
+    },
+    "protocol_v3": {
+      "path": "configs/experiment_protocol_v3.json",
+      "sha256": "0b4da86f5a0acf0748e9aa2f71d3cab679e9e549700f421ba067ef2b44e71394"
+    },
+    "registry": {
+      "path": "data/manifests/compphish_v4_feature_registry.json",
+      "sha256": "490016329c52db7016477cd3a8f0bd5946e7e86b8a31a737b843af78d88acbb4"
+    },
+    "splits": {
+      "path": "data/manifests/compphish_v4_splits.csv",
+      "sha256": "5213c671cc1f9c1ec0d990f19258a3dd38f6cff8bb6f46e059271a4d5f46ff2b"
+    },
+    "step10_runner": {
+      "path": "scripts/run_step10_method_validation.py",
+      "sha256": "d2b282941b6c04ba42f92276e4d705bdf94b0264cd29d121256a4e7be625e619"
+    },
+    "step8_runner": {
+      "path": "scripts/run_step8_development_pilot.py",
+      "sha256": "7d4dafa560c26b4e11c724f3dddd57c5a7c40144a50df3a8ba9448db9cca9b1e"
+    }
+  },
+  "budget": {
+    "changed_coordinates": 1,
+    "total_binary_queries": 5
+  },
+  "confidence_interval": "Connected-group bootstrap, 10000 resamples, 97.5% two-sided interval per contrast, seed 20261123",
+  "confirmatory_detectors": [
+    "logistic_regression",
+    "gradient_boosting"
+  ],
+  "confirmatory_knowledge": [
+    "K0"
+  ],
+  "equivalence_margin_absolute_risk_difference": 0.05,
+  "ethics_status": "User reports supervisor accepted Class 1 for exact PoC and local data processing; declaration not independently inspected.",
+  "final_evaluation_run": false,
+  "final_split_unsealed": false,
+  "model_thresholds": {
+    "gradient_boosting": {
+      "development_achieved_fpr": 0.019623875715453803,
+      "development_recall": 0.7055555555555556,
+      "model_sha256": "662d8bf45b863604b20755154f656c6900135bbbd42de718a249b9a42e3c9995",
+      "threshold": 0.792962872694845
+    },
+    "logistic_regression": {
+      "development_achieved_fpr": 0.019623875715453803,
+      "development_recall": 0.5481481481481482,
+      "model_sha256": "ee047200a42cb23c00daa7cfab6f0234bb21e6ad7f4b0e8fd15eb2304ed961ab",
+      "threshold": 0.7911127720700377
+    }
+  },
+  "primary_estimand": "Paired M-family minus S bypass risk difference among initially detected phishing starts with preassigned same-family factual S and distinct eligible M",
+  "status": "frozen_after_method_validation",
+  "version": 1
+}
