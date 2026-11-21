@@ -25,7 +25,9 @@ The versioned precision gate requires at least 200 eligible groups per model and
 
 ## Institutional handling gate
 
-The repository contains the CompPhish v4 CC BY 4.0 release and notes that raw/derived records are kept locally and ignored by Git. It does **not** identify the university's governing FYP ethics or cybersecurity data-handling policy, an exemption, or supervisor/institution approval. This gate cannot be marked complete from dataset licensing alone. Before method-validation or final evaluation, obtain the applicable institutional requirements and record the decision, permitted storage/processing, and publication limits. The already completed offline pilot is documented as research activity; this report does not retroactively claim institutional clearance.
+The student identified IIT Sri Lanka's University of Westminster affiliation and supplied *CSE UG Project Ethics Guidance v1.0* (19 October 2026). The guide says undergraduate projects are normally expected to remain Class 1, but Class 1 still requires the form's screening criteria, low or no risk of harm, and supervisor sign-off. Westminster's published classification table requires **no security-sensitive research** for Class 1, while its security-sensitive policy explicitly lists cybersecurity. Archived, unsanitized phishing HTML may also need review for directly or indirectly identifiable personal data. See `docs/step-9-ethics-classification-review.md` for the source-based assessment and project description.
+
+The project's Class 1 status is **unconfirmed**. The supervisor must decide whether this bounded offline phishing-detector study falls within Westminster's security-sensitive category and whether the data trigger the personal-data screen. If the activity is designated security-sensitive, the published policy points to Class 4 review and restricted University storage. No accepted declaration, supervisor decision, or permission to continue has been provided. The already completed offline pilot is documented as research activity; this report does not retroactively claim institutional clearance.
 
 ## Next allowed work
 
