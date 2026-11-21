@@ -1,0 +1,77 @@
+{
+  "protocol_version": 1,
+  "status": "pretraining_design",
+  "seed": 20261121,
+  "registry": "data/manifests/compphish_v4_feature_registry.json",
+  "matrix_manifest": "data/manifests/compphish_v4_feature_matrix.json",
+  "primary_rows_only": true,
+  "fit_split": "train",
+  "selection_split": "development",
+  "final_access_allowed": false,
+  "models": {
+    "logistic_regression": {
+      "C": [
+        0.01,
+        0.1,
+        1,
+        10
+      ],
+      "penalty": "l2",
+      "solver": "lbfgs",
+      "max_iter": 2000,
+      "standardize_train_only": true
+    },
+    "gradient_boosting": {
+      "max_depth": [
+        1,
+        2,
+        3
+      ],
+      "n_estimators": [
+        100,
+        200
+      ],
+      "learning_rate": 0.05,
+      "min_samples_leaf": 20,
+      "subsample": 1.0
+    }
+  },
+  "selection_metric": "development_average_precision",
+  "development_fpr_target": 0.01,
+  "minimum_development_recall_gate": 0.5,
+  "query_budget_grid": [
+    5,
+    10,
+    20,
+    40
+  ],
+  "coordinate_budget_grid": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "confirmatory_knowledge": [
+    "K0",
+    "K2"
+  ],
+  "bootstrap": {
+    "replicates": 10000,
+    "seed": 20261123,
+    "unit": "connected_group",
+    "descriptive_interval": 0.95,
+    "four_contrast_adjusted_interval": 0.9875
+  },
+  "pending_before_final": [
+    "runtime_pins",
+    "model_and_threshold_hashes",
+    "grammar_and_search",
+    "cue_fidelity_audit",
+    "selected_budget",
+    "equivalence_margin",
+    "precision_projection",
+    "handling_requirements"
+  ],
+  "secondary_minimax_enabled": false
+}
