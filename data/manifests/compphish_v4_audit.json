@@ -1,0 +1,207 @@
+{
+  "audit_tool_versions": {
+    "openpyxl": "3.1.5",
+    "tldextract": "5.2.0"
+  },
+  "data_dictionary": {
+    "case_only_name_differences": [
+      {
+        "data_dictionary": "no_of_images",
+        "feature_table": "no_of_Images"
+      }
+    ],
+    "document_rows": 76,
+    "empty_cells_by_field": {
+      "Category": 0,
+      "Computational Rule/Threshold/Criteria": 28,
+      "Data Type": 0,
+      "Description": 0,
+      "Feature Name": 0
+    },
+    "extra_feature_ids": [],
+    "extra_names_case_insensitive": [],
+    "feature_ids_with_empty_computational_rule": [
+      "F2",
+      "F3",
+      "F4",
+      "F5",
+      "F6",
+      "F10",
+      "F11",
+      "F15",
+      "F16",
+      "F17",
+      "F18",
+      "F19",
+      "F20",
+      "F21",
+      "F22",
+      "F23",
+      "F24",
+      "F25",
+      "F26",
+      "F27",
+      "F28",
+      "F39",
+      "F40",
+      "F44",
+      "F45",
+      "F46",
+      "F48",
+      "F49"
+    ],
+    "feature_rows": 70,
+    "feature_table_feature_count": 70,
+    "header": [
+      "Feature ID",
+      "Feature Name",
+      "Data Type",
+      "Category",
+      "Description",
+      "Computational Rule/Threshold/Criteria",
+      "Values for the sample URL:https://amazon-login.example.test/account/netflix/verify?id=123"
+    ],
+    "missing_feature_ids": [],
+    "missing_names_case_insensitive": [],
+    "non_feature_note_rows": 1,
+    "unique_feature_ids": 70
+  },
+  "dataset": "CompPhish",
+  "doi": "10.17632/fmbs4kp9wz.4",
+  "feature_extractor_bundle": {
+    "executed": false,
+    "member_count": 8,
+    "pickle_payloads_statically_disassembled": [
+      {
+        "global_or_constructor_opcodes": 0,
+        "member": "gib_model.pki",
+        "opcode_count": 853,
+        "protocol": 4
+      }
+    ],
+    "python_source_count": 3,
+    "source_has_pickle_load": true
+  },
+  "features": {
+    "duplicate_serial_count": 0,
+    "extra_rows_vs_mapping": 0,
+    "feature_columns_excluding_serial_url_label": 70,
+    "header_columns": 73,
+    "label_mismatch_rows": 0,
+    "missing_cells_by_feature": {},
+    "missing_rows_vs_mapping": 0,
+    "rows": 15358,
+    "unique_serials": 15358,
+    "url_mismatch_rows": 0
+  },
+  "files": {
+    "All_Features_threshold90.xlsx": {
+      "actual_sha256": "6e87b7997c2d0e9e3f1e02fd5ee1240442385f9bea5f0a40e46e7b6e43ada21b",
+      "actual_size": 4726765,
+      "expected_sha256": "6e87b7997c2d0e9e3f1e02fd5ee1240442385f9bea5f0a40e46e7b6e43ada21b",
+      "expected_size": 4726765,
+      "sha256_match": true,
+      "size_match": true
+    },
+    "All_HTML.zip": {
+      "actual_sha256": "12440e4f911fabf4ec2c712ae014cb43e638e9a6adc6c7c6a506a8a7df24fcf7",
+      "actual_size": 725995327,
+      "expected_sha256": "12440e4f911fabf4ec2c712ae014cb43e638e9a6adc6c7c6a506a8a7df24fcf7",
+      "expected_size": 725995327,
+      "sha256_match": true,
+      "size_match": true
+    },
+    "Data_Dictionary.xlsx": {
+      "actual_sha256": "a4237dd99d7f4a55edc3ffe88a416db77b1734f7c5d52677f8f0c86bf8b88470",
+      "actual_size": 18182,
+      "expected_sha256": "a4237dd99d7f4a55edc3ffe88a416db77b1734f7c5d52677f8f0c86bf8b88470",
+      "expected_size": 18182,
+      "sha256_match": true,
+      "size_match": true
+    },
+    "Mapping_File.xlsx": {
+      "actual_sha256": "e6dda6a21d925f8aba36090f295b08e9808a5dfe8dd3276bf8cd82022855f14a",
+      "actual_size": 635936,
+      "expected_sha256": "e6dda6a21d925f8aba36090f295b08e9808a5dfe8dd3276bf8cd82022855f14a",
+      "expected_size": 635936,
+      "sha256_match": true,
+      "size_match": true
+    },
+    "Readme.docx": {
+      "actual_sha256": "b6bb0dcec059a5fa0e01a380c711ea5d27d2577727f3d407a0012276a72b9083",
+      "actual_size": 18710,
+      "expected_sha256": "b6bb0dcec059a5fa0e01a380c711ea5d27d2577727f3d407a0012276a72b9083",
+      "expected_size": 18710,
+      "sha256_match": true,
+      "size_match": true
+    },
+    "feature extractor.zip": {
+      "actual_sha256": "0e72f280a189fdc91c65aa3035334676df26018da8d5b751a0d3f980007b858a",
+      "actual_size": 34276,
+      "expected_sha256": "0e72f280a189fdc91c65aa3035334676df26018da8d5b751a0d3f980007b858a",
+      "expected_size": 34276,
+      "sha256_match": true,
+      "size_match": true
+    },
+    "requirements.txt": {
+      "actual_sha256": "d8c1469acf0841ef38323e0050abe6757b376e919bc3a1b8bb13155c13d12eef",
+      "actual_size": 166,
+      "expected_sha256": "d8c1469acf0841ef38323e0050abe6757b376e919bc3a1b8bb13155c13d12eef",
+      "expected_size": 166,
+      "sha256_match": true,
+      "size_match": true
+    }
+  },
+  "grouping": {
+    "group_count_connected_domain_or_template": 10318,
+    "group_size_max": 337,
+    "group_size_median": 1.0,
+    "group_size_min": 1,
+    "group_size_p95_nearest_rank": 2,
+    "group_size_p99_nearest_rank": 6,
+    "groups_over_100_rows": 12,
+    "html_template_rule": "HTMLParser DOM structure plus sorted class/id/role/type/name/rel/method/aria-label/itemprop values (digit runs normalized); visible text lowercased with whitespace collapsed; other attribute values omitted; comments omitted",
+    "mixed_label_connected_groups": 29,
+    "registrable_domain_extractor": "tldextract 5.2.0; bundled PSL; private suffixes included; no network fetch"
+  },
+  "html_archive": {
+    "distinct_exact_sha256_contents": 13180,
+    "duplicate_stems": 0,
+    "exact_content_groups_with_mixed_labels": 8,
+    "exact_duplicate_content_rows": 2178,
+    "extra_archive_serials": 0,
+    "member_count": 15358,
+    "missing_mapping_serials": 0,
+    "rows_in_mixed_label_exact_content_groups": 241,
+    "text_html_member_count": 15358,
+    "unique_serial_stems": 15358,
+    "unsafe_member_paths": 0
+  },
+  "license": "CC BY 4.0",
+  "mapping": {
+    "distinct_domain_groups_for_splitting": 11981,
+    "distinct_host_fallback_groups": 17,
+    "distinct_registrable_domains": 11964,
+    "domain_groups_with_mixed_labels": 21,
+    "domain_groups_with_multiple_rows": 1088,
+    "duplicate_serial_count": 0,
+    "exact_duplicate_url_rows": 7,
+    "header": [
+      "serial_number",
+      "url",
+      "label"
+    ],
+    "labels": {
+      "0": 8154,
+      "1": 7204
+    },
+    "malformed_urls": 0,
+    "normalized_duplicate_url_rows": 101,
+    "normalized_url_groups_with_mixed_labels": 0,
+    "rows": 15358,
+    "rows_with_host_without_registrable_suffix": 21,
+    "rows_with_missing_host": 0,
+    "unique_serials": 15358
+  },
+  "version": 4
+}
