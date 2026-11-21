@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore and verify the frozen CompPhish phishing detection research results.">
+  <title>CompPhish · Frozen Results Lab</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./data.js"></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to results</a>
+  <header class="site-header">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">C<span>·</span></span><span>CompPhish <small>RESULTS LAB</small></span></div>
+    <nav aria-label="Main navigation"><a href="#results">Results</a><a href="#explore">Explore budgets</a><a href="#reproduce">Reproduce</a><a href="#limits">Limits</a></nav>
+    <span class="header-status"><span class="status-dot"></span> Frozen evaluation</span>
+  </header>
+  <main id="main">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="eyebrow"><span class="eyebrow-line"></span> FINAL SPLIT · COMPPhISH V4 · OFFLINE STUDY</div>
+      <div class="hero-grid">
+        <div><h1 id="hero-title">What did the <em>model cue</em> add?</h1><p class="hero-copy">A controlled comparison of one truthful model-selected cue against a truthful fact from the same feature family. The endpoint is a detector prediction flip after a bounded feature-vector change.</p><div class="hero-actions"><a class="button button-primary" href="#results">See the result</a><a class="button button-ghost" href="#reproduce">Verify the numbers</a></div></div>
+        <div class="hero-card"><div class="hero-card-top">THE EXPERIMENT <span>01 / 01</span></div><div class="hero-diagram"><div class="diagram-node"><b>V</b><span>Verdict only</span></div><div class="diagram-line"></div><div class="diagram-node"><b>S</b><span>Matched fact</span></div><div class="diagram-line active"></div><div class="diagram-node accent"><b>M</b><span>Model cue</span></div></div><div class="hero-card-bottom"><span>Same starts</span><span>Same budget</span><span>Same model</span></div></div>
+      </div>
+      <div class="hero-meta"><span><strong>2</strong> frozen detectors</span><span><strong>2,303</strong> final records</span><span><strong>27,636</strong> source checks</span><span><strong>1 feature / 5 queries</strong> selected budget</span></div>
+    </section>
+
+    <section class="section section-results" id="results" aria-labelledby="results-title"><div class="shell">
+      <div class="section-heading"><div><div class="eyebrow">PRIMARY CONTRAST</div><h2 id="results-title">More bypasses with the model cue.</h2><p>The percentages compare paired phishing starts where both distinct same-family cues were eligible. The adjusted intervals account for connected groups and two detector comparisons.</p></div><span class="section-index">FINAL / 01</span></div>
+      <div class="result-grid" id="resultCards" aria-live="polite"></div>
+      <div class="result-footnote"><span class="footnote-icon">i</span><p>A positive difference means the model-cue arm flipped the detector more often than the matched-fact arm under this feature-vector search. It does not imply a functioning webpage can be altered.</p></div>
+    </div></section>
+
+    <section class="section section-explore" id="explore" aria-labelledby="explore-title"><div class="shell">
+      <div class="section-heading"><div><div class="eyebrow">SENSITIVITY VIEW</div><h2 id="explore-title">Explore the frozen budget curve.</h2><p>Change the model and coordinate limit to see the recorded final bypass rates. The confirmatory comparison used one changed coordinate and five total queries.</p></div><span class="section-index">FINAL / 02</span></div>
+      <div class="explorer">
+        <div class="explorer-toolbar"><fieldset class="segmented"><legend>Detector</legend><button type="button" data-model="logistic_regression" aria-pressed="true">Logistic regression</button><button type="button" data-model="gradient_boosting" aria-pressed="false">Boosted trees</button></fieldset><label class="select-wrap">Changed coordinates<select id="changesSelect" aria-label="Changed coordinate limit"><option value="1">1 coordinate</option><option value="2">2 coordinates</option><option value="3">3 coordinates</option><option value="4">4 coordinates</option><option value="5">5 coordinates</option></select></label></div>
+        <div class="explorer-grid"><div class="chart-wrap"><div class="chart-head"><div><span class="chart-kicker">PAIRED BYPASS RATE</span><h3 id="chartTitle">Logistic regression · one coordinate</h3></div><span class="chart-context">Matched subset only</span></div><div class="legend"><span><i class="legend-v"></i>V · verdict</span><span><i class="legend-s"></i>S · matched fact</span><span><i class="legend-m"></i>M · model cue</span></div><div id="budgetChart" class="budget-chart" role="img" aria-label="Budget curve for paired bypass rates"></div><div class="chart-x-label">Total binary queries, including the initial verdict</div></div><div class="explorer-aside"><div class="aside-label">AT THIS LIMIT</div><div id="budgetTable"></div><p class="aside-note">These curves are sensitivity results. Confidence intervals were frozen for the selected <strong>1 coordinate / 5 query</strong> comparison only.</p></div></div>
+      </div>
+    </div></section>
+
+    <section class="section section-reproduce" id="reproduce" aria-labelledby="reproduce-title"><div class="shell">
+      <div class="section-heading"><div><div class="eyebrow">REPRODUCIBILITY</div><h2 id="reproduce-title">Trace each result to the frozen record.</h2><p>The page carries aggregate values only. A local verifier recalculates paired rates and 10,000 connected-group bootstrap replicates from the ignored row log, then checks them against the final manifest.</p></div><span class="section-index">METHOD / 03</span></div>
+      <div class="repro-grid"><div class="repro-panel"><div class="repro-panel-top"><span class="status-pill">VERIFIED AT BUILD</span><span class="mono" id="manifestHash">Manifest · loading</span></div><h3>Run the verification locally</h3><p>From the repository root, using an environment with the pinned modeling packages:</p><div class="code-block"><code>python3 demo/reproduce.py</code><button type="button" id="copyCommand" aria-label="Copy verification command">Copy</button></div><p class="small-print">The ignored <code>data/processed/step11_final_selected_log.csv</code> must be present. This command checks stored outcomes; it does not rerun the final attack or change a model.</p><button type="button" class="button button-outline" id="recalcButton">Recalculate displayed differences</button><div id="recalcOutput" class="recalc-output" aria-live="polite">Ready to check aggregate arithmetic in your browser.</div></div><div class="method-steps"><div><span>01</span><strong>Source fidelity</strong><p>Every frozen final feature value was independently checked against archived URL and HTML content.</p></div><div><span>02</span><strong>Paired comparison</strong><p>V, S, and M use the same eligible starts, model, query cap, and feature-change cap.</p></div><div><span>03</span><strong>Clustered uncertainty</strong><p>Connected groups are resampled 10,000 times; the 97.5% intervals adjust for two primary detector contrasts.</p></div></div></div>
+    </div></section>
+
+    <section class="section section-limits" id="limits" aria-labelledby="limits-title"><div class="shell"><div class="section-heading"><div><div class="eyebrow">HOW TO READ THIS</div><h2 id="limits-title">A strong result, with a narrow endpoint.</h2></div><span class="section-index">SCOPE / 04</span></div><div class="limit-grid"><article><span>01</span><h3>Feature vectors</h3><p>These changes were made to model inputs. The experiment did not show that a valid, visible or working phishing webpage can be edited this way.</p></article><article><span>02</span><h3>Eligible subset</h3><p>The primary comparison includes starts with a factual S cue and a distinct same-family M cue: 344 logistic and 299 boosted-tree starts.</p></article><article><span>03</span><h3>Dataset and protocol</h3><p>Collection source is tied to class, the 2% detector target was chosen using development results, and normalized perturbation magnitude was not logged.</p></article></div><p class="limit-link">For exact methods and caveats, see <code>docs/step-11-frozen-final-results.md</code> in the repository.</p></div></section>
+  </main>
+  <footer class="site-footer"><div class="shell"><div class="brand"><span class="brand-mark" aria-hidden="true">C<span>·</span></span><span>CompPhish <small>RESULTS LAB</small></span></div><p>Offline research demonstration · aggregate data only · CompPhish v4</p><a href="#main">Back to top</a></div></footer>
+</body>
+</html>
