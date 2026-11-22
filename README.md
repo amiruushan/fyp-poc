@@ -1,4 +1,4 @@
-# CompPhish: truthful cues and bounded phishing-detector evasion
+# Truthful Model-Selected Phishing Cues and Bounded Feature-Space Evasion: A Paired Disclosure Study
 
 This repository is the proof of concept (PoC) for a Final Year Project on **what a phishing detector reveals when it gives a factual reason for its verdict**. It tests whether a truthful cue selected for local model relevance helps a bounded search more than a truthful fact selected independently of model relevance from the **same preassigned feature family**. The comparison is about the *choice of fact*, not merely whether any extra fact is disclosed.
 
