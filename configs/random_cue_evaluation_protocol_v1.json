@@ -1,0 +1,77 @@
+{
+  "protocol_version": 1,
+  "status": "proposed_not_frozen",
+  "study_role": "new group-held-out evaluation on previously unevaluated original training groups; not an independent dataset replication",
+  "source_dataset": "CompPhish v4, DOI 10.17632/fmbs4kp9wz.4",
+  "source_group_manifest": "data/manifests/compphish_v4_groups.csv",
+  "source_split_manifest": "data/manifests/compphish_v4_splits.csv",
+  "eligible_source_pool": "primary rows whose connected group was assigned to the original train partition; original development, method-validation, and final groups are excluded because their attack outcomes were inspected",
+  "eligible_source_pool_rows": 9214,
+  "eligible_source_pool_groups": 4955,
+  "test_partition": {
+    "unit": "connected domain/template group",
+    "assignment": "new deterministic seed and group-atomic allocation from the eligible source pool only",
+    "target_fraction": 0.2,
+    "stratification": "balance label counts and mixed-label exact-HTML groups; record actual row/group totals",
+    "membership_file": "data/manifests/compphish_v4_random_cue_splits.csv",
+    "freeze_before_model_fit": true
+  },
+  "remaining_pool_partition": {
+    "unit": "connected domain/template group",
+    "train_target_fraction": 0.75,
+    "development_target_fraction": 0.25,
+    "assignment": "deterministic group allocation among non-test eligible groups",
+    "model_fit": "train only",
+    "model_selection_and_threshold_selection": "development only"
+  },
+  "detectors": {
+    "logistic_regression": "same registered L2 logistic family and train-only standardization as original PoC; refit on new train groups; choose fixed grid by development average precision",
+    "gradient_boosting": "same registered shallow gradient boosting family as original PoC; refit on new train groups; choose fixed grid by development average precision",
+    "operating_point": "target 2% empirical development benign FPR, report achieved FPR and Wilson interval; state development-informed history of the original 2% amendment"
+  },
+  "features": "same 12 frozen source-derived features and extractor; no registry changes",
+  "cue_family_assignment": "same deterministic family hash rule and family registry, with a new versioned seed fixed before test access",
+  "cue_arms": {
+    "F_first": "first factual feature in the preassigned family under frozen registry order, without using model relevance",
+    "R_random": "uniform draw from distinct eligible factual same-family features, independently seeded per test start before any arm search; draw procedure and seed frozen before test access",
+    "M_model": "distinct eligible factual same-family feature with largest positive reduction in frozen model phishing score when replaced by train-only median/mode; registry-order tie break"
+  },
+  "primary_estimand": "paired row-weighted M_model minus R_random binary-flip risk difference, separately for each detector, among test phishing starts initially detected and eligible for distinct factual same-family cues in both selector sets",
+  "secondary_estimand": "paired M_model minus F_first difference on the same rows; report selector collisions and each selector's coverage",
+  "search": {
+    "endpoint": "abstract feature-vector binary prediction flip; no URL/HTML dependency feasibility claim",
+    "coordinate_limits": [1],
+    "total_binary_query_budgets": [5, 10, 20, 40],
+    "primary_budget": {"changed_coordinates": 1, "total_binary_queries": 5},
+    "initial_verdict_counts_as_query": true,
+    "arms_share_candidate_values_and_search_except_cue_coordinate_priority": true,
+    "attacker_feedback": "cue identity and binary verdicts only; no scores, gradients, coefficients, or thresholds"
+  },
+  "inference": {
+    "unit": "connected group; retain all paired rows within sampled group",
+    "replicates": 10000,
+    "interval": "two-sided 97.5% percentile group bootstrap for two primary M_model-minus-R_random detector contrasts (Bonferroni familywise 5%)",
+    "seed": "fixed, documented before final evaluation; separate deterministic stream per detector",
+    "secondary_and_sensitivity": "clearly labeled exploratory; report all 5/10/20/40 query cells without promoting a favorable cell to confirmatory"
+  },
+  "feasibility_gate": {
+    "minimum_primary_eligible_groups_per_detector": 200,
+    "maximum_projected_adjusted_interval_half_width": 0.08,
+    "projection_source": "development-only pilot; must simulate the random selector and paired M-R comparison, not reuse the old M-S projection",
+    "failure_action": "do not open test outcomes; amend the design using development only or report insufficient precision"
+  },
+  "guardrails": [
+    "The new test consists only of original train groups that had no prior attack outcomes; retrain both detectors excluding every new test group.",
+    "Do not use old development, method-validation, or final groups in this confirmatory test because their attack outcomes were inspected.",
+    "The original final split and its results remain frozen and unchanged.",
+    "Freeze split membership, model-selection rule, thresholds, cue rules, random seed, budget, analysis, and artifact hashes before any new test label/prediction/attack outcome is inspected.",
+    "Do not call this a fully independent replication: same dataset, feature work, and prior development decisions remain shared.",
+    "Do not claim valid webpage edits, operational evasion, explanation usefulness, or human impact."
+  ],
+  "unresolved_before_freeze": [
+    "run grouped allocation feasibility from the eligible original-train pool and record actual train/development/test counts",
+    "implement a development-only seeded-random cue pilot and estimate coverage and paired M_model-minus-R_random precision",
+    "decide and document whether R_random draws from all factual same-family features or only the distinct eligible cue candidate set; recommended: draw uniformly from the distinct eligible candidate set, allowing a collision with M_model and report collisions",
+    "verify current supervisor ethics declaration covers this new evaluation and rerun scope before processing"
+  ]
+}
