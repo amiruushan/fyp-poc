@@ -1,0 +1,49 @@
+{
+  "protocol_version": 2,
+  "status": "frozen_before_new_test_evaluation",
+  "dataset": "CompPhish v4",
+  "test_groups": "fixed 1232 groups in data/manifests/compphish_v4_random_cue_splits.csv; originally drawn from untouched original-train groups",
+  "split_sha256": "d310780933300a6e39af8b644a06802499d159df84ce618b83087efa330f931b",
+  "feature_registry": "data/manifests/compphish_v4_feature_registry.json",
+  "feature_matrix_manifest": "data/manifests/compphish_v4_feature_matrix.json",
+  "train_development_source": "all non-test groups; fresh training excludes every reserved test group",
+  "models": {
+    "logistic_regression": {
+      "C": 10,
+      "standardize": true
+    },
+    "gradient_boosting": {
+      "max_depth": 3,
+      "n_estimators": 200,
+      "learning_rate": 0.05,
+      "min_samples_leaf": 20
+    }
+  },
+  "threshold_rule": "lowest score threshold achieving empirical development benign FPR <= 0.02; positive iff score >= threshold",
+  "family_seed": 20261124,
+  "random_selector_seed": 20261124,
+  "arms": {
+    "F": "first factual feature in seeded preassigned family",
+    "R": "uniform factual mutable same-family feature other than M; deterministic per serial; starts without an alternative are ineligible for primary M-R",
+    "M": "eligible same-family factual feature with greatest positive score reduction under train-only median/mode replacement, tie by registry order"
+  },
+  "primary": {
+    "contrast": "M-R",
+    "budget": {
+      "changed_coordinates": 1,
+      "total_binary_queries": 5
+    },
+    "population": "initially detected test phishing starts with M and a distinct factual mutable same-family random alternative",
+    "inference": "row-weighted paired difference; 10000 connected-group bootstrap replicates; two-sided 97.5% intervals for two detector contrasts, Bonferroni familywise 5%",
+    "bootstrap_seed": 20261123
+  },
+  "secondary": "M-F at primary budget; descriptive V/F/R/M rates and 10/20/40-query sensitivity on identical matched rows",
+  "query_budgets": [
+    5,
+    10,
+    20,
+    40
+  ],
+  "endpoint": "abstract feature-vector negative prediction flip; not webpage or URL feasibility",
+  "test_evaluation": "one run only after freeze hash verification; no retuning or rerun"
+}
