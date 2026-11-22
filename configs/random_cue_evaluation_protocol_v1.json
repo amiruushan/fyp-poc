@@ -1,26 +1,26 @@
 {
   "protocol_version": 1,
-  "status": "development_pilot_complete_test_not_evaluated",
+  "status": "revised_development_precision_gate_passed_test_not_evaluated",
   "study_role": "new group-held-out evaluation on previously unevaluated original training groups; not an independent dataset replication",
   "source_dataset": "CompPhish v4, DOI 10.17632/fmbs4kp9wz.4",
   "source_group_manifest": "data/manifests/compphish_v4_groups.csv",
   "source_split_manifest": "data/manifests/compphish_v4_splits.csv",
-  "eligible_source_pool": "primary rows whose connected group was assigned to the original train partition; original development, method-validation, and final groups are excluded because their attack outcomes were inspected",
-  "eligible_source_pool_rows": 9214,
-  "eligible_source_pool_groups": 4955,
+  "eligible_source_pool": "fixed new test groups from the previously unevaluated original train pool; all remaining connected groups are eligible for the new train/development allocation, with model fitting and cue development confined to new train/development groups",
+  "eligible_source_pool_rows": 15355,
+  "eligible_source_pool_groups": 10318,
   "test_partition": {
     "unit": "connected domain/template group",
-    "assignment": "new deterministic seed and group-atomic allocation from the eligible source pool only",
-    "target_fraction": 0.2,
+    "assignment": "preserve the same 1232 previously reserved group IDs from the earlier candidate split; all originated in original train and remain sealed",
+    "target_fraction": 0.12,
     "stratification": "balance label counts and mixed-label exact-HTML groups; record actual row/group totals",
     "membership_file": "data/manifests/compphish_v4_random_cue_splits.csv",
     "freeze_before_model_fit": true
   },
   "remaining_pool_partition": {
     "unit": "connected domain/template group",
-    "train_target_fraction": 0.75,
-    "development_target_fraction": 0.25,
-    "assignment": "deterministic group allocation among non-test eligible groups",
+    "train_target_fraction": 0.6,
+    "development_target_fraction": 0.4,
+    "assignment": "hold test IDs fixed, then allocate all remaining groups deterministically by group-atomic label-balanced greedy allocation",
     "model_fit": "train only",
     "model_selection_and_threshold_selection": "development only"
   },
@@ -68,7 +68,7 @@
     "minimum_primary_eligible_groups_per_detector": 200,
     "maximum_projected_adjusted_interval_half_width": 0.08,
     "projection_source": "development-only pilot; must simulate the random selector and paired M-R comparison, not reuse the old M-S projection",
-    "failure_action": "Current development pilot fails the minimum-group and projected-precision gate. Do not open test outcomes. A versioned development-only amendment is required before any test evaluation."
+    "failure_action": "If development gate fails, do not inspect new test outcomes."
   },
   "guardrails": [
     "The new test consists only of original train groups that had no prior attack outcomes; retrain both detectors excluding every new test group.",
@@ -79,8 +79,18 @@
     "Do not claim valid webpage edits, operational evasion, explanation usefulness, or human impact."
   ],
   "unresolved_before_freeze": [
-    "The development-only pilot produced only 68 and 70 eligible connected groups, below the planned 200-group and 8-point precision gates; do not evaluate the current test partition under this protocol.",
-    "Revise the split fractions or narrow/redefine the study using development-only evidence; any revised protocol and test membership must be frozen before test outcomes are accessed.",
-    "Verify current supervisor ethics declaration covers the added comparison and local processing."
-  ]
+    "Development-only precision gate now passes at the current allocation; freeze revised protocol, membership, and all artifact hashes before the single test evaluation.",
+    "Verify current supervisor ethics declaration covers this added evaluation and local processing."
+  ],
+  "development_pilot": {
+    "matched_groups": {
+      "logistic_regression": 332,
+      "gradient_boosting": 366
+    },
+    "primary_adjusted_interval_half_width_points": {
+      "logistic_regression": 5.99,
+      "gradient_boosting": 4.03
+    },
+    "status": "development only; precision gate passed; test not evaluated"
+  }
 }

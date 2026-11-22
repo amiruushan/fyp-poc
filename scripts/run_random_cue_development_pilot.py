@@ -59,7 +59,8 @@ def main():
  features,names,data=load();train=data['train'];dev=data['development']
  Xtr=np.array([[float(r[n]) for n in names] for r in train]);ytr=np.array([int(r['label']) for r in train])
  X=np.array([[float(r[n]) for n in names] for r in dev]);y=np.array([int(r['label']) for r in dev])
- if len(train)!=5529 or len(dev)!=1843:raise ValueError('Split differs from frozen candidate allocation')
+ if not train or not dev:raise ValueError('New train/development split is empty')
+ if len(train)+len(dev)!=13513:raise ValueError('Unexpected non-test row count; possible test leakage')
  groups=np.array([r['new_group'] for r in dev])
  low=np.quantile(Xtr,.05,axis=0);high=np.quantile(Xtr,.95,axis=0)
  for i,f in enumerate(features):
@@ -67,7 +68,8 @@ def main():
   if f['type']=='boolean':low[i]=0;high[i]=1
  families=sorted({f['family'] for f in features}); fi={fam:[i for i,f in enumerate(features) if f['family']==fam] for fam in families}
  refs=np.array([np.median(Xtr[:,i]) if f['type']!='boolean' else Counter(Xtr[:,i].astype(int)).most_common(1)[0][0] for i,f in enumerate(features)],float)
- result={'scope':'development-only cue-selector pilot; test partition was not loaded','random_seed':SEED,'budget_grid':list(BUDGETS),'models':{}}
+ split_stats=json.loads((ROOT/'data/manifests/compphish_v4_random_cue_split_stats.json').read_text())
+ result={'scope':'development-only cue-selector pilot; test partition was not loaded','random_seed':SEED,'split_membership_sha256':split_stats['membership_sha256'],'split_counts':split_stats['splits'],'budget_grid':list(BUDGETS),'models':{}}
  for name in ['logistic_regression','gradient_boosting']:
   candidates=[]
   for modelname,params in make_models(SEED):
