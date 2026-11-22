@@ -1,0 +1,34 @@
+{
+  "greedy_trials": 64,
+  "membership_sha256": "0cc77577352f4a3c41e75265480a311bda81898bbaf711122f501877b544557d",
+  "seed": 8675309,
+  "selected_trial": 0,
+  "source_final_groups_excluded": 5363,
+  "source_pool_groups": 4955,
+  "source_pool_rows": 9214,
+  "source_split_sha256": "5213c671cc1f9c1ec0d990f19258a3dd38f6cff8bb6f46e059271a4d5f46ff2b",
+  "splits": {
+    "development": {
+      "groups": 1232,
+      "legitimate": 979,
+      "mixed_label_groups": 1,
+      "phishing": 864,
+      "rows": 1843
+    },
+    "test": {
+      "groups": 1232,
+      "legitimate": 978,
+      "mixed_label_groups": 0,
+      "phishing": 864,
+      "rows": 1842
+    },
+    "train": {
+      "groups": 2491,
+      "legitimate": 2936,
+      "mixed_label_groups": 25,
+      "phishing": 2593,
+      "rows": 5529
+    }
+  },
+  "status": "group-only candidate split; pilot/test outcomes not evaluated"
+}

@@ -53,6 +53,8 @@ The **primary paired comparison** uses the same eligible starts for V, S, and M-
 
 Both intervals exclude zero for this frozen abstract search. Coverage is limited: the matched comparison includes **344/589 (58.4%)** initially detected logistic starts and **299/759 (39.4%)** initially detected boosted starts. The [final aggregate JSON](data/manifests/compphish_v4_final_results.json) also reports all-start V/S/M-global-with-V-fallback rates, query costs, discordances, and the full budget grid; those all-start rates use different denominators and a different M cue, so they are not interchangeable with the primary table. At **one coordinate and 40 queries**, V, S, and M-family converge to 98.84% bypass for logistic regression and 89.97% for boosting. The cue-priority advantage measured here is tied to the tight five-query setting.
 
+A separate development-only pilot compares first-available, random-distinct, and model-selected factual cues on a new group allocation. It has only 68 matched logistic groups and 70 boosted groups, below the planned precision gate. It is not confirmatory, and its new test partition remains sealed. See the [random-cue pilot report](docs/random-cue-development-pilot.md) and [versioned protocol](configs/random_cue_evaluation_protocol_v1.json).
+
 ### Interpretation limits
 
 - URL/HTML dependencies are not fully enforced by the candidate grammar; no candidate was validated as a working page or URL.
