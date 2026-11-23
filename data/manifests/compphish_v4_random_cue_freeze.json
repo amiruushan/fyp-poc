@@ -1,0 +1,40 @@
+{
+  "development_rows": 5405,
+  "final_evaluator_sha256": "538be7449a13e8cba3ec598d3365002d31542a27ae35c69541a98156c05c9e56",
+  "freeze_script_sha256": "9a357ec045f015d78f5e0143570112834ae0a0eaa1e741a6d88160b71a9236c4",
+  "matrix_manifest_sha256": "42976f16642e235b39213ad97ec540b31bd46db6afb536d48b614e11c62a64c3",
+  "matrix_sha256": "a969f207f16f98c87645424a127cd45fbbaffc300c42bcd2865b3284b1f0d602",
+  "models": {
+    "gradient_boosting": {
+      "development_average_precision": 0.9710019615712621,
+      "development_fpr": 0.01986062717770035,
+      "development_recall": 0.7861932938856016,
+      "model_path": "data/processed/random_cue_models/gradient_boosting.joblib",
+      "model_sha256": "e0d1b6d521ec93cefc3293296b508d8f102c8a10c1455793d5a905f3b14e0a4b",
+      "params": {
+        "max_depth": 3,
+        "n_estimators": 200
+      },
+      "threshold": 0.7877842330246195
+    },
+    "logistic_regression": {
+      "development_average_precision": 0.9395007465577682,
+      "development_fpr": 0.01986062717770035,
+      "development_recall": 0.6485207100591716,
+      "model_path": "data/processed/random_cue_models/logistic_regression.joblib",
+      "model_sha256": "811017b1cd2410a3f3846f7ca35ecb0d19cba6289c9948b49f3ac0a499ba0fcb",
+      "params": {
+        "C": 10
+      },
+      "threshold": 0.7545646670943429
+    }
+  },
+  "original_split_sha256": "5213c671cc1f9c1ec0d990f19258a3dd38f6cff8bb6f46e059271a4d5f46ff2b",
+  "pilot_sha256": "dc9e8d30eef718edcd3a8c0327baef9dbebaf592ef65959809f8214fd9b5b5a4",
+  "protocol_sha256": "c0276e3ac38c58c396cd8034f3c1c29c5e8954909676eec56172133ce2632f04",
+  "registry_sha256": "490016329c52db7016477cd3a8f0bd5946e7e86b8a31a737b843af78d88acbb4",
+  "split_sha256": "d310780933300a6e39af8b644a06802499d159df84ce618b83087efa330f931b",
+  "status": "frozen; test not evaluated",
+  "test_group_count": 1232,
+  "train_rows": 8108
+}

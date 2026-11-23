@@ -1,0 +1,147 @@
+{
+  "budget_grid": [
+    5,
+    10,
+    20,
+    40
+  ],
+  "freeze_manifest_sha256": "034ac0224c49fbe25b90bcf72e6e99bfe6ece4d048c0e918399065e65ab527f6",
+  "models": {
+    "gradient_boosting": {
+      "coverage": 0.42661448140900193,
+      "detector": {
+        "FPR": 0.026584867075664622,
+        "average_precision": 0.9403423777889801,
+        "benign": 978,
+        "false_positives": 26,
+        "phishing": 864,
+        "precision": 0.9515828677839852,
+        "recall": 0.5914351851851852,
+        "roc_auc": 0.9458787775505568,
+        "threshold": 0.7877842330246195,
+        "true_positives": 511
+      },
+      "initially_detected_phishing": 511,
+      "matched_groups": 72,
+      "matched_rows": 218,
+      "mean_queries_at_5": {
+        "F": 4.376146788990826,
+        "M": 4.174311926605505,
+        "R": 4.518348623853211
+      },
+      "paired_differences_at_5": {
+        "M-F": {
+          "difference": 0.06880733944954129,
+          "discordant_negative": 0,
+          "discordant_positive": 15,
+          "interval_97_5": [
+            0.02531645569620253,
+            0.14835622710622737
+          ]
+        },
+        "M-R": {
+          "difference": 0.06880733944954129,
+          "discordant_negative": 3,
+          "discordant_positive": 18,
+          "interval_97_5": [
+            0.0045662100456621,
+            0.15923637337241422
+          ]
+        }
+      },
+      "rates_by_query_budget": {
+        "10": {
+          "F": 0.9403669724770642,
+          "M": 0.944954128440367,
+          "R": 0.9357798165137615
+        },
+        "20": {
+          "F": 0.9862385321100917,
+          "M": 0.9862385321100917,
+          "R": 0.9862385321100917
+        },
+        "40": {
+          "F": 0.9862385321100917,
+          "M": 0.9862385321100917,
+          "R": 0.9862385321100917
+        },
+        "5": {
+          "F": 0.3256880733944954,
+          "M": 0.3944954128440367,
+          "R": 0.3256880733944954
+        }
+      }
+    },
+    "logistic_regression": {
+      "coverage": 0.4090909090909091,
+      "detector": {
+        "FPR": 0.026584867075664622,
+        "average_precision": 0.8997750640025522,
+        "benign": 978,
+        "false_positives": 26,
+        "phishing": 864,
+        "precision": 0.9490196078431372,
+        "recall": 0.5601851851851852,
+        "roc_auc": 0.9016209620919489,
+        "threshold": 0.7545646670943429,
+        "true_positives": 484
+      },
+      "initially_detected_phishing": 484,
+      "matched_groups": 75,
+      "matched_rows": 198,
+      "mean_queries_at_5": {
+        "F": 4.575757575757576,
+        "M": 3.202020202020202,
+        "R": 4.5606060606060606
+      },
+      "paired_differences_at_5": {
+        "M-F": {
+          "difference": 0.45454545454545453,
+          "discordant_negative": 0,
+          "discordant_positive": 90,
+          "interval_97_5": [
+            0.23076923076923078,
+            0.5783601363019614
+          ]
+        },
+        "M-R": {
+          "difference": 0.41919191919191917,
+          "discordant_negative": 2,
+          "discordant_positive": 85,
+          "interval_97_5": [
+            0.17857142857142858,
+            0.5555555555555556
+          ]
+        }
+      },
+      "rates_by_query_budget": {
+        "10": {
+          "F": 0.5,
+          "M": 0.8232323232323232,
+          "R": 0.5050505050505051
+        },
+        "20": {
+          "F": 0.98989898989899,
+          "M": 0.98989898989899,
+          "R": 0.98989898989899
+        },
+        "40": {
+          "F": 0.98989898989899,
+          "M": 0.98989898989899,
+          "R": 0.98989898989899
+        },
+        "5": {
+          "F": 0.20707070707070707,
+          "M": 0.6616161616161617,
+          "R": 0.24242424242424243
+        }
+      }
+    }
+  },
+  "protocol_sha256": "c0276e3ac38c58c396cd8034f3c1c29c5e8954909676eec56172133ce2632f04",
+  "split_sha256": "d310780933300a6e39af8b644a06802499d159df84ce618b83087efa330f931b",
+  "stage": "one-time fresh-group-holdout evaluation",
+  "test_groups": 1232,
+  "test_opened_once": true,
+  "test_rows": 1842
+}

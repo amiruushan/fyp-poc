@@ -1,0 +1,36 @@
+{
+  "membership_sha256": "d310780933300a6e39af8b644a06802499d159df84ce618b83087efa330f931b",
+  "previous_membership_sha256": "28158617184732fb4172c079ae2c854bae8df272d2a37df6ccbffe233eebb472",
+  "previously_unattacked_pool_groups": 10318,
+  "reserved_test_groups": 1232,
+  "seed": 8675311,
+  "selected_trial": 0,
+  "source_split_sha256": "5213c671cc1f9c1ec0d990f19258a3dd38f6cff8bb6f46e059271a4d5f46ff2b",
+  "splits": {
+    "development": {
+      "groups": 4176,
+      "legitimate": 2870,
+      "mixed_label_groups": 1,
+      "phishing": 2535,
+      "rows": 5405
+    },
+    "test": {
+      "groups": 1232,
+      "legitimate": 978,
+      "mixed_label_groups": 0,
+      "phishing": 864,
+      "rows": 1842
+    },
+    "train": {
+      "groups": 4910,
+      "legitimate": 4306,
+      "mixed_label_groups": 28,
+      "phishing": 3802,
+      "rows": 8108
+    }
+  },
+  "status": "revised development allocation; reserved test group IDs preserved; test outcomes not accessed",
+  "training_development_pool_groups": 9086,
+  "training_development_pool_rows": 13513,
+  "trials": 64
+}
